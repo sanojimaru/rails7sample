@@ -6,11 +6,13 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_USER: user
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+
     ports:
       - "3306:3306"
     volumes:
-      - db:/var/lib/mysql
+      - ./db:/var/lib/mysql
 
   app:
     build: .
@@ -22,7 +24,3 @@ services:
       - 3000:3000
     depends_on:
       - db
-
-volumes:
-  db:
-  node_modules:

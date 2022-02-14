@@ -6,4 +6,5 @@ if ! command -v foreman &>/dev/null; then
 fi
 
 yarn install --force
+bin/rake db:create
 foreman start -f Procfile.dev
